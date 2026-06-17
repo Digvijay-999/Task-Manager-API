@@ -1,19 +1,25 @@
+require("dotenv").config();
+
 const express = require("express");
 
+const connectDB = require("./config/db");
+
 const app = express();
+
+connectDB();
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({
-    message: "Task Manager API"
-  });
+    res.json({
+        message: "Task Manager API"
+    });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(
-    `Server running on port ${PORT}`
-  );
+    console.log(
+        `Server running on port ${PORT}`
+    );
 });
