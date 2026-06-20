@@ -39,7 +39,15 @@ res.status(201).json({
     email: user.email
 });
 };
+const loginUser = async (req, res) => {
+
+    res.json({
+        message: "Login endpoint"
+    });
+
+};
 
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 };
